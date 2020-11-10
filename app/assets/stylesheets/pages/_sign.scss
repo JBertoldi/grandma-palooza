@@ -1,0 +1,67 @@
+
+.container-sign {
+  display: flex;
+  background-color: rgba(5,5,5,0.5);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sign {
+  background-color:rgba(255,255,255,0.7);;
+  min-width: 25%;
+  margin: 40px;
+  margin-left: 40px;
+  float: right;
+  padding: 30px 35px;
+  border-radius: 16px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+.form-actions {
+  margin-top: 8px;
+}
+
+.action-btn {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  max-height: 40px;
+  width: fit-content;
+  border-radius: 14px;
+  border: 1px solid #212121;
+  margin-top: 20px;
+}
+
+.sign-btn {
+  background-color: rgb(120,39,38);
+  border-color: none;
+  display: flex;
+  text-align: center;
+  align-content: center;
+  max-height: 40px;
+  width: fit-content;
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+.color-white {
+  color: #FFF;
+}
+
+.btn-container {
+  display: flex;
+  min-width: 25%;
+  justify-content: space-around;
+}
+#sign-background {
+  display: flex;
+  width: 1700px;
+  background-image: url('sombrero.jpg');
+  background-position-x: 0%;
+  background-position-y: 75%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
