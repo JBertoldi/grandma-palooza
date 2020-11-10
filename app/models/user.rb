@@ -9,8 +9,10 @@ class User < ApplicationRecord
   has_many :grandmothers
 
   validates :first_name, :last_name, :age, :location, :email, presence: true
+
   validates :email, uniqueness: true
   #validates :password , presence: true, if: 'id.nil?
   #validates :password, length: { minimum: 8 }, unless: 'password.nil?'
+
   validates :age, numericality: { only_integer: true }
 end
