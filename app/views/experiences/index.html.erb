@@ -4,7 +4,7 @@
   <% @experiences.each do |experience| %>
     <li>
     <%= link_to experience.title, experience_path(experience) %> --
-    <%= link_to 'Destroy', experiences_path(experience), 
+    <%= link_to 'Destroy', experience_path(experience), 
         method: :delete, 
         data: { confirm: "Delete #{experience.title}?"} %>
     </li>
