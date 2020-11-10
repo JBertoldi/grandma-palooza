@@ -1,4 +1,8 @@
-This is the profile page!
+<h1>This is the profile page!</h1>
+
+<% if notice.present? %>
+  <%= notice.html_safe %>
+<% end %>
 
 <%= @user.email %>
 
