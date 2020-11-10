@@ -1,0 +1,14 @@
+<h1>Experiences</h1>
+
+<ul>
+  <% @experiences.each do |experience| %>
+    <li>
+    <%= link_to experience.title, experience_path(experience) %> --
+    <%= link_to 'Destroy', experience_path(experience), 
+        method: :delete, 
+        data: { confirm: "Delete #{experience.title}?"} %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Create new experience', new_experience_path %>
