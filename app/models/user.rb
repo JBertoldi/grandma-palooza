@@ -8,9 +8,9 @@ class User < ApplicationRecord
   has_many :experiences
   has_many :grandmothers
 
-  validates :first_name, :last_name, :age, :location, :email, presence: true
+  validates :first_name, :last_name, :age, :location, :email, :password, presence: true
   validates :email, uniqueness: true #format: { with: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g, message: 'Must enter valid email.' }
-  # validates :password, presence: true, if: 'id.nil?' 
+  #validates :password, presence: true, if: 'id.nil?' 
   # validates :password, length: { minimum: 8 }, unless: "password.nil?"
   validates :age, numericality: { only_integer: true }
 end
