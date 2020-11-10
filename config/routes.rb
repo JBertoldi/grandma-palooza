@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   resources :experiences
   resources :bookings
-  resources :grandmothers, except: :index
+  resources :grandmothers, except: [:index, :delete]
+  delete "grandmothers/:id", to: 'grandmothers#destroy', as: :grandmother_destroy
 end
