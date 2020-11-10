@@ -8,7 +8,7 @@ class GrandmothersController < ApplicationController
     @grandmother.user = current_user
 
     if @grandmother.save
-      redirect_to profile_path
+      redirect_to profile_path, notice: '<strong>Grandmother was created!</strong>'
     else
       render :new
     end
