@@ -1,0 +1,9 @@
+<h1><%= @experience.title %></h1>
+<%= @experience.description %>
+<p><%= @experience.price %> -- <%= @experience.duration %></p>
+<%= link_to 'Edit experience', edit_experience_path(@experience) %>
+
+<h2>Grandmother</h2>
+<%= @experience.grandmother.first_name %>
+
+<%= link_to 'Back to list', experiences_path %>

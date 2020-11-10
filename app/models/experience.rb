@@ -1,6 +1,6 @@
 class Experience < ApplicationRecord
-  belongs_to :user, presence: true
-  belongs_to :grandmother, presence: true
+  belongs_to :user # , presence: true
+  belongs_to :grandmother # , presence: true
 
   has_many :bookings
 
