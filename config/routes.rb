@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'experiences#index'
+  root to: 'pages#home'
 
   devise_for :users, :path => 'users'
   get 'profile', to: 'pages#profile'
