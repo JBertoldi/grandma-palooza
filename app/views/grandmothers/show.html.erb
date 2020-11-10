@@ -1,0 +1,6 @@
+<h1>Show Grandma page</h1>
+<% if notice.present? %>
+  <%= notice.html_safe %>
+<% end %>
+
+<%= link_to edit_grandmother_path(@grandmother) %>
