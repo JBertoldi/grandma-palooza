@@ -2,7 +2,7 @@
 
 <ul>
   <% @experiences.each do |experience| %>
-    <li><%= experience.name %></li>
+    <li><%= link_to experience.title, experience_path(experience) %></li>
   <% end %>
 </ul>
 

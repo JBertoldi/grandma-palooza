@@ -3,7 +3,6 @@
 <%= f.input :description %>
 <%= f.input :price %>
 <%= f.input :duration %>
-<%= f.association :grandmother, collection: Grandmother.where(id: current_user.id) %>
+<%= f.association :grandmother, label_method: :last_name, value_method: :id, include_blank: false, collection: current_user.grandmothers  %>
 <%= f.submit %>
-<%= link_to 'Back to list', experiences_path %>
 <% end %>
