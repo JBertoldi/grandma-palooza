@@ -1,0 +1,9 @@
+<%= simple_form_for @experience do |f| %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :price %>
+<%= f.input :duration %>
+<%= f.association :grandmother, collection: Grandmother.where(id: current_user.id) %>
+<%= f.submit %>
+<%= link_to 'Back to list', experiences_path %>
+<% end %>
