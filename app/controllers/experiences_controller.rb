@@ -1,10 +1,11 @@
 class ExperiencesController < ApplicationController
+  before_action :set_experience, only: [:show, :edit, :update, :destroy]
+
   def index
     @experiences = Experience.all
   end
 
   def show
-    @experience = Experience.find(params[:id])
   end
 
   def new
@@ -23,18 +24,28 @@ class ExperiencesController < ApplicationController
   end
 
   def edit
-    @experience = Experience.find(params[:id])
   end
 
   def update
+    if @experience.update(experience_params)
+      redirect_to experience_path(@experience), notice: 'Experience updated!'
+    else
+      render :new
+    end
   end
 
   def destroy
+    @experience.destroy
+    redirect_to experiences_path
   end
 
   private
 
   def experience_params
     params.require(:experience).permit(:title, :description, :price, :duration, :grandmother_id)
+  end
+
+  def set_experience
+    @experience = Experience.find(params[:id])
   end
 end

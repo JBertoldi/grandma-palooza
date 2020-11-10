@@ -1,5 +1,5 @@
 <h1>Edit experience:</h1>
 
-<%= render 'form' %>
+<%= render 'form', experience: @experience %>
 
-
+<%= link_to 'Back to experience', experience_path(@experience) %>
