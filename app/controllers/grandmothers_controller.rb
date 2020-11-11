@@ -41,6 +41,6 @@ class GrandmothersController < ApplicationController
   end
 
   def grandmother_params
-    params.require(:grandmother).permit(:first_name, :last_name, :age, :nationality, :description)
+    params.require(:grandmother).permit(:name, :age, :nationality, :description)
   end
 end
