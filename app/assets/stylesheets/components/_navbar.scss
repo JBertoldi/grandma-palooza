@@ -1,7 +1,14 @@
 .navbar-lewagon {
-
-  background: rgba(0,0,0,0.3);
+  background: #FFF;
   height: 60px;
+}
+
+#transparent-black {
+  background: rgba(0,0,0,0.3);
+}
+
+#shadow-light {
+  text-shadow: 1px 1px 1px rgba(214, 214, 214, 1);
 }
 
 .navbar-lewagon .navbar-collapse {
