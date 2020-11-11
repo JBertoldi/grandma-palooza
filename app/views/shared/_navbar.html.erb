@@ -1,13 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
       <%= link_to root_path, class: "navbar-brand" do %>
-        <h1 class="text-white nav-title">Grandma Palooza</h1>
+        <h1 class="text-dark nav-title" id="shadow-light">Grandma Palooza</h1>
       <% end %>
       <%# Search bar %>
-      <div class="container center-item">
+      <div class="container ml-3">
       <div class="d-flex justify-content-center">
-        <div class="searchbar">
-          <input class="search_input" type="text" name="" placeholder="Search by experiences, country, or type of food..">
-          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        <div class="searchbar bg-white">
+          <input class="search_input bg-white" type="text" name="" placeholder="Search by experiences, country, or type of food..">
+          <a href="#" class="search_icon text-dark"><i class="fas fa-search"></i></a>
         </div>
       </div>
     </div>
@@ -20,7 +20,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <%= link_to "Experiences", experiences_path, class: "nav-link text-white mx-5 override-font" %>
+            <%= link_to "Experiences", experiences_path, class: "nav-link mx-5 override-font text-dark" %>
           </li>
           <li class="nav-item dropdown"> 
             <% if user_signed_in?%>
