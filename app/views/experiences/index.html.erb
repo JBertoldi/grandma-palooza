@@ -1,14 +1,19 @@
-<h1>Experiences</h1>
-
-<ul>
-  <% @experiences.each do |experience| %>
-    <li>
-    <%= link_to experience.title, experience_path(experience) %> --
-    <%= link_to 'Destroy', experience_path(experience), 
-        method: :delete, 
-        data: { confirm: "Delete #{experience.title}?"} %>
-    </li>
-  <% end %>
-</ul>
+<h1>Find an experience near you</h1>
 
 <%= link_to 'Create new experience', new_experience_path %>
+
+<ul class="experience-card">
+  <% @experiences.each do |experience| %>
+  <div class="exp-container">
+      <li>
+        <h5><%= link_to experience.title, experience_path(experience) %></h5>
+        <p><%= experience.price %>€</p>
+        <p><%= link_to 'Delete experience', experience_path(experience),
+                method: :delete,
+                data: { confirm: "Delete #{experience.title}?"} %></p>
+      </li>
+    </div>
+  <% end %>
+  <br>
+</ul>
+
