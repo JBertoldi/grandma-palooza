@@ -24,13 +24,13 @@
 }
 
 .action-btn {
+  border: 1px solid #212121 !important;
   display: flex;
   text-align: center;
   align-content: center;
   max-height: 40px;
   width: fit-content;
-  border-radius: 14px;
-  border: 1px solid #212121;
+  border-radius: 14px  !important;
   margin-top: 20px;
 }
 
