@@ -6,10 +6,7 @@
       <%= f.error_notification %>
 
       <div class="form-group">
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true %>
-        <%= f.input :last_name,
+        <%= f.input :name,
                     required: true,
                     autofocus: true %>
         <%= f.input :age,
@@ -34,7 +31,7 @@
                     input_html: { autocomplete: "new-password" } %>
       </div>
       <div class="btn-container">
-        <%= link_to 'Go back', experiences_path, class: "btn action-btn " %>
+        <%= link_to 'Go back', experiences_path, class: "btn action-btn" %>
         <div class="form-actions sign-btn">
           <%= f.button :submit, "Sign up", class: 'color-white' %>
         </div>

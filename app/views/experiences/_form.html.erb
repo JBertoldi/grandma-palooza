@@ -3,6 +3,6 @@
 <%= f.input :description %>
 <%= f.input :price %>
 <%= f.input :duration %>
-<%= f.association :grandmother, label_method: :last_name, value_method: :id, include_blank: false, collection: current_user.grandmothers  %>
+<%= f.association :grandmother, label_method: :name, value_method: :id, include_blank: false, collection: current_user.grandmothers  %>
 <%= f.submit %>
 <% end %>
