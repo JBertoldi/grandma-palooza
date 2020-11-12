@@ -1,23 +1,34 @@
-<h1>Find an experience near you</h1>
 
-<div class="container">
+
+<div class="exp-page-container">
+  <h1>Find an experience near you</h1>
   <div class="row">
     <% @experiences.each do |experience| %>
-    <div class="col-4">
-      <div class="exp-container">
-        <div class="card-head">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="exp-container">
+
+          <div class="exp-card-head">
             <h5><%= link_to experience.title, experience_path(experience) %></h5>
             <p>With <%= experience.grandmother.name %></p>
           </div>
-            <div class="card-footer2">
+
+          <div class="card-footer2">
+            <div class="price-and-book">
               <p><%= experience.price %>€</p>
-              <p><%= link_to 'Delete experience', experience_path(experience),
-                      method: :delete,
-                      data: { confirm: "Delete #{experience.title}?"} %></p>
+                <a href="url">Book Now</a>
+
             </div>
+          </div>
+
+        </div>
       </div>
-    </div>
     <% end %>
   </div>
 </div>
+
+
+<!-- removed the delete option in these cards, and will be moved to /profile -->
+<!-- <p><%#= link_to 'Delete experience', experience_path(experience),
+                      method: :delete,
+                      data: { confirm: "Delete #{experience.title}?"} %></p> -->
 
