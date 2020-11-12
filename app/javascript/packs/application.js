@@ -26,8 +26,9 @@ require("channels")
 import "bootstrap";
 
 // Internal imports, e.g:
-import { toggleTabs } from '../components/toggle_tabs';
+import { activateTab, toggleTabs } from '../components/toggle_tabs';
 
 document.addEventListener('turbolinks:load', () => {
+  activateTab();
   toggleTabs();
 });

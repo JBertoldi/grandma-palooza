@@ -1,60 +1,85 @@
-<div class="alert alert-success notice-box" role="alert">
-    You have logged in successfully
+<%# <div class="alert alert-success notice-box" role="alert"> %>
   <% if notice.present? %>
     <%= notice.html_safe %>
   <% end %> 
-</div>
+<%# </div> %>
 <h5 class="greeting">Welcome, <%= @user.name.split(" ").first %>!</h5> <%# to clean %>
 
-
 <div class="container-profile">
-  <div class="profile-card">
-    <%= image_tag "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", :class => "avatar-large" %>
-    <h4 class="profile-name-margin"><%= @user.name%></h4>
-    <p>Nationality: <%= @user.nationality %></p>
-    <p>Location: <%= @user.location %></p>
-    <p><%= @user.email %></p>
-  </div>
-
-  <div class="dashboard">
-    <div id="nav">
-        <a href="#manage">Manage Experiences</a>
-        <a href="#booked">My Booked Experiences</a>
-        <a href="#grands">Grandmothers</a>
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-3"> 
+      <div class="profile-card">
+        <%= image_tag "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", class: "avatar-large" %>
+        <div class="profile-info">
+          <h4><%= @user.name%></h4>
+          <small><p><%= @user.nationality %></p></small>
+          <small><h5><%= @user.location %></h5></small>
+        </div>
+        <%= link_to 'Edit',  edit_user_registration_path, class: 'btn action-btn' %>
+        <%= link_to 'Log out',  destroy_user_session_path, method: :delete, class: 'btn action-btn' %>
+      </div>
     </div>
-    <div class="dashboard-inner">
-      <div id="manage" class="toggle" style="display:show">
-        <% @experiences.each do |experience| %>
-          <div class="section-dash">
-            <h6><%= experience.title %></h6>
-              <p><%= experience.description %></p>
-              <p>
-                <%= experience.price %>€ 
-                <%= experience.duration.strftime('%R') %>
-              </p>
-              <%= link_to 'Edit experience', edit_experience_path(experience.id), class: 'btn action-btn' %>
-            </div>
-          <% end %>
-        <%= link_to 'Create experience', new_experience_path, class: 'btn action-btn' %>
-      </div>
-      <div id="booked" class="toggle" style="display:none">
-
-      </div>
-      <div id="grands" class="toggle" style="display:none">
-        <% @grandmothers.each do |grandmother| %>
+    <div class="col-sm-12 col-md-12 col-lg-9"> 
+      <div class="dashboard">
+        <div id="nav" class="tabs">
+            <a href="#manage" class="tab active">Manage Experiences</a>
+            <a href="#booked" class="tab">My Booked Experiences</a>
+            <a href="#grands" class="tab">Grandmothers</a>
+        </div>
+        <div class="dashboard-inner">
+          <div id="manage" class="toggle" style="display:show">
+            <% @user.experiences.each do |experience| %>
               <div class="section-dash">
-                <h6><%= grandmother.name %></h6>
-                <%= grandmother.description %>
-                <p>
-                  <%= grandmother.nationality %>,
-                  <%= grandmother.age %> years young
-                </p>
-                <%= link_to 'Edit grandmother', edit_grandmother_path(grandmother.id), class: 'btn action-btn' %>
-                <%= link_to 'Delete', grandmother_destroy_path(grandmother), method: :delete, class: 'btn action-btn' %>
+                <h6><%= experience.title %></h6>
+                <p class="ml-2"><%= experience.description %></p>
+                  <p> Duration: 
+                    <% if experience.duration < 60 %>
+                      <%= distance_of_time_in_words(experience.duration * 60) %>
+                    <% else %>
+                      <%= Time.at(experience.duration * 60).utc.strftime("%H:%M") %> hours
+                    <% end %>
+                  </p>
+                  <p>Price: <%= experience.price %>€</p>
+                  <%= link_to 'Edit', edit_experience_path(experience.id), class: 'btn action-btn' %>
+                  <%= link_to 'Delete', experience_path(experience.id), method: :delete, class: 'btn action-btn' %>
               </div>
-            <% end %>
-          <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn action-btn' %>
+              <% end %>
+            <%= link_to 'Create experience', new_experience_path, class: 'btn sign-btn' %>
+          </div>
+          <div id="booked" class="toggle" style="display:none">
+            <% @bookings.each do |booking| %>
+              <div class="section-dash">
+                <h6><%= booking.experience.title %></h6>
+                <p class="ml-2"><%= booking.experience.description %></p>
+                  <p> Duration: 
+                    <% if booking.experience.duration < 60 %>
+                      <%= distance_of_time_in_words(booking.experience.duration * 60) %>
+                    <% else %>
+                      <%= Time.at(booking.experience.duration * 60).utc.strftime("%H:%M") %> hours
+                    <% end %>
+                  </p>
+                  <p>Price: <%= booking.experience.price %>€</p>
+                  <%= link_to 'Cancel booking', booking_path(booking.id), method: :delete, class: 'btn action-btn' %>
+              </div>
+              <% end %>
+            <%= link_to 'Create experience', new_experience_path, class: 'btn sign-btn' %>
+          </div>
+          <div id="grands" class="toggle" style="display:none">
+            <% @grandmothers.each do |grandmother| %>
+                  <div class="section-dash">
+                    <h6><%= grandmother.name %></h6>
+                    <%= grandmother.description %>
+                    <p>
+                      <%= grandmother.nationality %>,
+                      <%= grandmother.age %> years young
+                    </p>
+                    <%= link_to 'Edit grandmother', edit_grandmother_path(grandmother.id), class: 'btn action-btn' %>
+                    <%= link_to 'Delete', grandmother_destroy_path(grandmother), method: :delete, class: 'btn action-btn' %>
+                  </div>
+                <% end %>
+              <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn action-btn' %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>

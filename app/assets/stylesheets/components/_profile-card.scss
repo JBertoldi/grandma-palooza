@@ -2,19 +2,27 @@
     position: sticky;
     align-items: center;
     width: max-content;
-    margin-left: 20px;
-    height: 400px;
+    margin-left: 50px;
+    height: max-content;
     text-align: center;
-    padding: 16px;
-    border: 1px solid #BFBFBF;
+    padding: 24px;
+    // border-top: 1px solid #BFBFBF;
+    // border-bottom: 1px solid #BFBFBF;
     background-color: white;
-    box-shadow: 2px 2px 10px #aaaaaa;
+    box-shadow: 1px 1px 3px rgba(150,150,150,0.5);
+    border-radius: 8px;
+    justify-content: center;
 }
 
-.profile-name-margin {
-    margin-top: 8px;
+
+.profile-info {
+    margin-top: 20px;
 }
 
+.profile-info p {
+    margin-bottom: 0px;
+    color: #888888;
+}
 // change folder
 .greeting {
     width: max-content;
@@ -22,12 +30,6 @@
 }
 .container-profile {
     display: flex;
+    justify-content: space-evenly;
     margin-top: 30px;
-}
-
-.notice-box {
-    float: right;
-    margin-top: 16px;
-    margin-right: 16px;
-    width: max-content;
 }
