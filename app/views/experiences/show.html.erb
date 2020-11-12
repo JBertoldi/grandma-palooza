@@ -1,14 +1,31 @@
 <div class="exp-page-container">
   <h1><%= @experience.title %></h1>
   <div class="row" >
-    <h3><%= @experience.start_time.strftime("%B %d, %Y - %Hh%M") %></h3>
-    <%= @experience.description %>
-    <p><%= @experience.price %> -- <%= @experience.duration %>min</p>
-    <%= link_to 'Edit experience', edit_experience_path(@experience) %>
+    <div class="col-sm-12 col-md-4 col-lg-3">
+      <div class="grandma-details">
+        <div>
+          <h2>Grandmother</h2>
+          <p><%= @experience.grandmother.name %><p>
+          <p><%= @experience.grandmother.description %></p>
+        </div>
+      </div>
+      <%= link_to 'Back to list', experiences_path %>
+      <%= link_to 'Book Now', new_experience_booking_path(@experience) %>
+    </div>
 
-    <h2>Grandmother</h2>
-    <%= @experience.grandmother.name %>
+    <div class="col-12 col-md-6 col-lg-8">
+      <div class="experience-details">
+        <h3>When: <%= @experience.start_time.strftime("%B %d, %Y - %Hh%M") %></h3>
+          <p><%= @experience.description %></p>
+        <p><%= @experience.duration %>min</p>
+        <p><%= @experience.price %>€ </p>
+      </div>
+    </div>
 
-    <%= link_to 'Back to list', experiences_path %>
+
+
+<!--     <%#= link_to 'Edit experience', edit_experience_path(@experience) %> -->
+<!-- line above might not be useful anymore, since the user -->
+<!-- is only seeing the experiences created by others -->
   </div>
 </div>
