@@ -13,10 +13,11 @@
           </div>
 
           <div class="card-footer2">
+            <div class="price-and-book">
               <p><%= experience.price %>€</p>
-              <p><%= link_to 'Delete experience', experience_path(experience),
-                      method: :delete,
-                      data: { confirm: "Delete #{experience.title}?"} %></p>
+                <a href="url">Book Now</a>
+
+            </div>
           </div>
 
         </div>
@@ -24,4 +25,10 @@
     <% end %>
   </div>
 </div>
+
+
+<!-- removed the delete option in these cards, and will be moved to /profile -->
+<!-- <p><%#= link_to 'Delete experience', experience_path(experience),
+                      method: :delete,
+                      data: { confirm: "Delete #{experience.title}?"} %></p> -->
 

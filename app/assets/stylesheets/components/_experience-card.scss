@@ -20,6 +20,7 @@
   align-content: space-between;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   position: relative;
+  // text-decoration: none;
 }
 
 .exp-card-head {
@@ -27,26 +28,46 @@
  // background-repeat: no-repeat;
  flex-grow: 1;
  padding: 15px;
+ border-radius: 15px;
 }
 
-.card-head p {
-font-size: 14px;
-margin: 0px;
+
+.exp-card-head a {
+color: white;
+font-size: 24px;
+}
+
+.exp-card-head p {
+  font-size: 14px;
 }
 
 .card-footer2 {
-    // padding-top: 70px;
+    // padding: 70px;
     position: absolute;
     bottom: 0;
     background-color: white;
     padding: 15px;
     vertical-align: bottom;
-    text-align: bottom;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    // text-align: bottom;
 }
 
 .card-footer2 p {
   font-size: 12px;
+  text-align: bottom;
+  margin-bottom: 0;
+  // display: inline;
+}
 
+.card-footer2 a {
+  color: black;
+  // display: inline;
+}
+
+.price-and-book {
+  margin: 0 auto;
+  text-align: bottom;
 }
 
 
