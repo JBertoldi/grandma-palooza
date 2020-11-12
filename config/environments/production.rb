@@ -27,6 +27,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = true
+  # Added because the images where not showing on heroku
   config.serve_static_assets = true
   config.assets.digest = true
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
