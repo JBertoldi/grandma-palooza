@@ -1,10 +1,14 @@
-<h1><%= @experience.title %></h1>
-<h2><%= @experience.start_time.strftime("%B %d, %Y - %Hh%M") %></h2>
-<%= @experience.description %>
-<p><%= @experience.price %> -- <%= @experience.duration %>min</p>
-<%= link_to 'Edit experience', edit_experience_path(@experience) %>
+<div class="exp-page-container">
+  <h1><%= @experience.title %></h1>
+  <div class="row" >
+    <h3><%= @experience.start_time.strftime("%B %d, %Y - %Hh%M") %></h3>
+    <%= @experience.description %>
+    <p><%= @experience.price %> -- <%= @experience.duration %>min</p>
+    <%= link_to 'Edit experience', edit_experience_path(@experience) %>
 
-<h2>Grandmother</h2>
-<%= @experience.grandmother.name %>
+    <h2>Grandmother</h2>
+    <%= @experience.grandmother.name %>
 
-<%= link_to 'Back to list', experiences_path %>
+    <%= link_to 'Back to list', experiences_path %>
+  </div>
+</div>
