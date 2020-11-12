@@ -36,6 +36,8 @@
   margin-bottom: 15px;
   text-decoration: none;
   font-size: 20px;
+  font-weight: lighter;
+  transition: color 2s ease-in 2s;
 }
 
 .tab:hover {
@@ -45,6 +47,9 @@
 }
 
 .active {
-  color: #000;
-  border-bottom: 3px solid #555555;
+  color: #555555;
+  border-bottom: 3px solid #2c2c2c;
+  font-weight: normal;
+  transition: color 2s ease-in 2s;
+
 }

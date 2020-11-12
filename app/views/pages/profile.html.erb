@@ -29,6 +29,7 @@
 
         <div class="dashboard-inner">
           <div id="manage" class="toggle" style="display:show">
+          <% if @user.experiences.present? %>
             <% @user.experiences.each do |experience| %>
               <div class="section-dash">
                 <h6><%= experience.title %></h6>
@@ -40,15 +41,19 @@
                       <%= distance_of_time_in_words(experience.duration * 60) %>
                     <% else %>
                       <%= Time.at(experience.duration * 60).utc.strftime("%H:%M") %> hours
-                    <% end %>
+  r                  <% end %>
                   <small><span class="pl-5">Price: €</span></small><%= experience.price %>
                 </p>
                   <%= link_to 'Edit', edit_experience_path(experience.id), class: 'btn action-btn' %>
                   <%= link_to 'Delete', experience_path(experience.id), method: :delete, class: 'btn action-btn' %>
               </div>
-              <% end %>
+            <% end %>
             <%= link_to 'Create experience', new_experience_path, class: 'btn sign-btn' %>
-          </div>
+          <% else %>
+            <h6>No experiences.. Yet! </h6>
+            <%= link_to 'Create experience', new_experience_path, class: 'btn sign-btn' %>
+          <% end %>
+        </div>
 
           <div id="booked" class="toggle" style="display:none">
               <% if @bookings.present? %>
@@ -75,19 +80,23 @@
         </div>
 
         <div id="grands" class="toggle" style="display:none">
-          <% @grandmothers.each do |grandmother| %>
-                <div class="section-dash">
-                  <h6><%= grandmother.name %></h6>
-                  <p><small>
-                    <%= grandmother.nationality %>,
-                    <%= grandmother.age %> years young
-                  </small></p>
-                  <p class="ml-2"><%= grandmother.description %></p>
-                  <%= link_to 'Edit', edit_grandmother_path(grandmother.id), class: 'btn action-btn' %>
-                  <%= link_to 'Delete', grandmother_destroy_path(grandmother), method: :delete, class: 'btn action-btn' %>
-                </div>
-              <% end %>
+          <% if @grandmothers.present? %>
+            <% @grandmothers.each do |grandmother| %>
+                  <div class="section-dash">
+                    <h6><%= grandmother.name %></h6>
+                    <p><small>
+                      <%= grandmother.nationality %>,
+                      <%= grandmother.age %> years young
+                    </small></p>
+                    <p class="ml-2"><%= grandmother.description %></p>
+                    <%= link_to 'Edit', edit_grandmother_path(grandmother.id), class: 'btn action-btn' %>
+                    <%= link_to 'Delete', grandmother_destroy_path(grandmother), method: :delete, class: 'btn action-btn' %>
+                  </div>
+            <% end %>
             <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
+          <% else %>
+            <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
+          <% end %>
         </div>
       </div>
     </div>
