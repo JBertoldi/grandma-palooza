@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show]
+  before_action :set_booking, only: [:show, :destroy]
   before_action :set_experience, only: [:new, :create]
 
   def show
@@ -20,6 +20,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking.destroy
+    redirect_to profile_path, notice: 'Your booking was cancelled!'
   end
 
   private
