@@ -1,17 +1,12 @@
 <h2 class="my-name">Welcome, <%= @user.name %>!</h2>
 
-<div style= "display:flex">
-  <%= link_to 'Create event', new_experience_path, style:"margin: 6px 10px" %>
-  <%= link_to 'Add grandmother', new_grandmother_path, style:"margin: 6px 10px" %>
-</div>
-
 <div class="row">
-<div class="alert alert-success" role="alert">
-  You have logged in successfully
- <% if notice.present? %>
-  <%= notice.html_safe %>
-<% end %> 
-</div>
+  <div class="alert alert-success" role="alert">
+    You have logged in successfully
+  <% if notice.present? %>
+    <%= notice.html_safe %>
+  <% end %> 
+  </div>
 </div>
 
 <div class="profile-card">
@@ -46,9 +41,20 @@
         <a href="#" class="tab">Booked Experiences</a>
         <a href="#" class="tab">Grandmothers</a>
       </div>
-
+    
+    <div class="dashboard-inner">
       <div class="experiences-manage">
-
+        <% @experiences.each do |experience| %>
+          <div class="experience">
+            <h6><%= experience.title %></h6>
+            <%= experience.description %>
+            <p>
+              <%= experience.price %>€ 
+              <%= experience.duration %>
+            </p>
+          </div>
+        <% end %>
+      <%= link_to 'Create experience', new_experience_path %>
       </div>
 
       <div class="experiences-booked">
@@ -56,8 +62,20 @@
       </div>
 
       <div class="grandmothers">
+      <% @grandmothers.each do |grandmother| %>
+          <div class="grandmother">
+            <h6><%= grandmother.name %></h6>
+            <%= grandmother.description %>
+            <p>
+              <%= grandmother.nationality %>
+              <%= grandmother.age %>
+            </p>
+            <%= link_to 'Add grandmother', new_grandmother_path %>
+          </div>
+        <% end %>
 
+      <%= link_to 'Add grandmother', new_grandmother_path %>
       </div>
       
-
+  </div>
 </div>
