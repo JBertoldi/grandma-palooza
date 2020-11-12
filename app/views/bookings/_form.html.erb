@@ -1,4 +1,28 @@
-<%= simple_form_for(experience, booking) do |f| %>
-<h2></h2>
-<%= f.submit %>
+<%= simple_form_for [experience, booking] do |f| %>
+  
+  <div>
+    <h1>Date</h1>
+    <p><%= Date.today %></p>
+    <%= f.hidden_field :date, value: Date.today %>
+  </div>
+
+  <div>
+    <h1>Price</h1>
+    <p><%= experience.price %></p>
+    <%= f.hidden_field :price, value: experience.price %>
+  </div>
+
+  <div>
+    <h1>User</h1>
+    <p><%= current_user.name %></p>
+    <%= f.hidden_field :user, value: current_user %>
+  </div>
+
+  <div>
+    <h1>Experience</h1>
+    <p><%= experience.title %></p>
+    <%= f.hidden_field :experience, value: experience %>
+  </div>
+
+  <%= f.button :submit, 'Pay' %>
 <% end %>
