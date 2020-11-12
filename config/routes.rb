@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
 
   resources :experiences do
-    resources :bookings, except: [:index, :show]
+    resources :bookings, only: [:new, :create, :destroy]
   end
 
   resources :bookings, only: [:show]
