@@ -4,19 +4,22 @@
     <div class="col-sm-12 col-md-4 col-lg-3">
       <div class="grandma-details">
         <div>
-          <h2>Grandmother</h2>
-          <p><%= @experience.grandmother.name %><p>
-          <p><%= @experience.grandmother.description %></p>
+          <p>Assigned granny - <%= @experience.grandmother.name %><p>
+          <div class="text">
+            <p><%= @experience.grandmother.description %></p>
+          </div>
         </div>
       </div>
       <%= link_to 'Back to list', experiences_path %>
       <%= link_to 'Book Now', new_experience_booking_path(@experience) %>
     </div>
 
-    <div class="col-12 col-md-6 col-lg-8">
+    <div class="col-sm-12 col-md-6 col-lg-8">
       <div class="experience-details">
         <h3>When: <%= @experience.start_time.strftime("%B %d, %Y - %Hh%M") %></h3>
-          <p><%= @experience.description %></p>
+          <div class="text">
+            <p><%= @experience.description %></p>
+          </div>
         <p><%= @experience.duration %>min</p>
         <p><%= @experience.price %>€ </p>
       </div>
