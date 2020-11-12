@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get 'profile', to: 'pages#profile'
 
   resources :experiences do
-    resources :bookings, except: [:index, :show]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show, :destroy]
   
   resources :grandmothers, except: [:index, :delete]
   delete "grandmothers/:id", to: 'grandmothers#destroy', as: :grandmother_destroy
