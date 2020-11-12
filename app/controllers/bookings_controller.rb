@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
+  before_action :set_experience, only: [:new]
 
   def show
   end
@@ -26,6 +27,10 @@ class BookingsController < ApplicationController
 
   def set_booking
     @booking = Booking.find(params[:id])
+  end
+
+  def set_experience
+    @experience = Experience.find(params[:experience_id])
   end
 
 end
