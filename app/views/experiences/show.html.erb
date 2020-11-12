@@ -3,23 +3,35 @@
   <div class="row" >
     <div class="col-sm-12 col-md-4 col-lg-3">
       <div class="grandma-details">
-        <div>
-          <p>Assigned granny - <%= @experience.grandmother.name %><p>
+       <!--  <div> -->
+<!--         <div class="grandma-dt"> -->
+          <%= image_tag "https://images.unsplash.com/photo-1447005497901-b3e9ee359928?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", :class => "avatar-medium" %>
+          <br>
+          <p>Assigned granny</p>
+          <h4><%= @experience.grandmother.name %></h4>
+<!--         </div> -->
+
           <div class="text">
             <p><%= @experience.grandmother.description %></p>
-          </div>
+         <!--  </div> -->
         </div>
       </div>
-      <%= link_to 'Back to list', experiences_path %>
+
+      <div class="sign-btn btn-container">
+        <%= link_to experiences_path do %>
+        <p> Book Now!</p>
+        <% end %>
+      </div>
+
       <%= link_to 'Book Now', new_experience_booking_path(@experience) %>
     </div>
 
     <div class="col-sm-12 col-md-6 col-lg-8">
       <div class="experience-details">
         <h3>When: <%= @experience.start_time.strftime("%B %d, %Y - %Hh%M") %></h3>
-          <div class="text">
+          <!-- <div class="text"> -->
             <p><%= @experience.description %></p>
-          </div>
+         <!--  </div> -->
         <p><%= @experience.duration %>min</p>
         <p><%= @experience.price %>€ </p>
       </div>
