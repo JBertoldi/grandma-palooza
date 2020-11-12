@@ -11,7 +11,6 @@ Grandmother.destroy_all
 puts "Destroying users..."
 User.destroy_all
 
-
 user_1 = User.create!(name: "Daniel Silva", email:"daniel@exemple.com", age: 26, nationality: "Russian",  location: "Lisboa", password: "123456")
 user_2 = User.create!(name: "Mariana Braga", email:"mari@exemple.com", age: 31, nationality: "Brasil",  location: "Porto", password: "123456")
 user_3 = User.create!(name: "Margot Jones", email:"marguy@exemple.com", age: 39, nationality: "France",  location: "Portugal", password: "123456")
