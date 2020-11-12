@@ -5,9 +5,12 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @booking = Booking.new
   end
 
   def create
+    raise
+    @booking = Booking.new()
   end
 
   def edit
