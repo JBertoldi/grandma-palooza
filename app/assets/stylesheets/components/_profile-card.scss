@@ -1,12 +1,11 @@
 .profile-card {
+    position: sticky;
     align-items: center;
-    background-color: red;
-    width: 30%;
-    margin: 0 auto;
+    width: max-content;
+    margin-left: 20px;
+    height: 400px;
     text-align: center;
     padding: 16px;
-    width: 284px;
-    padding: 10px 10px 20px 10px;
     border: 1px solid #BFBFBF;
     background-color: white;
     box-shadow: 2px 2px 10px #aaaaaa;
@@ -16,14 +15,19 @@
     margin-top: 8px;
 }
 
-.my-name {
-    margin-left: 16px;
+// change folder
+.greeting {
+    width: max-content;
+    margin: 0 auto;
+}
+.container-profile {
+    display: flex;
+    margin-top: 30px;
 }
 
-.row {
-    width: 20%;
-    position: absolute;
-    bottom: 8px;
-    right: 16px;
-    font-size: 18px;
+.notice-box {
+    float: right;
+    margin-top: 16px;
+    margin-right: 16px;
+    width: max-content;
 }

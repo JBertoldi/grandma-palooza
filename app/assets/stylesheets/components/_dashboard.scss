@@ -3,36 +3,15 @@
   height: 75vh;
   margin: 0 auto;
   padding: 20px;
-  border: 2px solid #6e6d6d;
   border-radius: 20px;
 }
 
 .dashboard-inner {
-  height: 70%;
-  overflow: scroll;
+  height: max-content;
 }
 
-/* Your tabs CSS code here */
-.tabs {
-  display: flex;
-  position: relative;
+.section-dash {
+  height: 95%;
+  border-bottom: 1px solid #6e6d6d;
+  padding: 16px;
 }
-
-.tab {
-  color: #949494;
-  padding: 8px 0;
-  margin-right: 15px;
-  margin-bottom: 15px;
-  text-decoration: none;
-}
-
-.tab:hover {
-  color:  #555555;
-  transition: color 0.3s ease 0s;
-}
-
-.active {
-  color: #000;
-  border-bottom: 3px solid #555555;
-}
-
