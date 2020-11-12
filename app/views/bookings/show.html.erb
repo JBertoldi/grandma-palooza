@@ -1,2 +1,7 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<% if @booking.user == current_user %>
+  <h1><%= @booking.experience.title %></h1>
+  <h2><%= @booking.date %> -- <%= @booking.price %></h2>
+  <p>For: <%= @booking.user.name %></p>
+<% else %>
+  <h1>You cannot access this page!</h1>
+<% end %>
