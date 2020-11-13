@@ -47,6 +47,8 @@
                     <% else %>
                       <%= Time.at(experience.duration * 60).utc.strftime("%H:%M") %> hours
                     <% end %>
+                  <small><span class="pl-5">Starts in: </span></small>
+                    <%= distance_of_time_in_words(Time.now, booking.experience.start_time) %>
                   <small><span class="pl-5">Price: €</span></small><%= experience.price %>
                 </p>
                   <%= link_to 'Edit', edit_experience_path(experience.id), class: 'btn action-btn' %>
@@ -74,6 +76,8 @@
                     <% else %>
                       <%= Time.at(booking.experience.duration * 60).utc.strftime("%H:%M") %> hours
                     <% end %>
+                    <small><span class="pl-5">Starts in: </span></small>
+                    <%= distance_of_time_in_words(Time.now, booking.experience.start_time) %>
                   <small><span class="pl-5">Price: €</span></small><%= booking.experience.price %>
                 </p>
                   <%= link_to 'Event page', booking_path(booking.id), class: 'btn action-btn' %>
