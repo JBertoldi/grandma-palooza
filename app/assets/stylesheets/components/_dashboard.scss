@@ -19,11 +19,6 @@
   padding: 16px;
 }
 
-.container-empty {
-  min-width: 90%;
-  min-height: fit-content;
-}
-
 .tabs {
   display: flex;
   position: relative;
@@ -52,4 +47,11 @@
   font-weight: normal;
   transition: color 2s ease-in 2s;
 
+}
+
+.notice-box {
+  float: right;
+  color: rgba(120,39,38, 0.7);
+  margin-right: 36px;
+  text-shadow: #2c2c2c;
 }

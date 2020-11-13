@@ -25,7 +25,7 @@ class GrandmothersController < ApplicationController
   def update
     @grandmother.update(grandmother_params)
 
-    redirect_to grandmother_path(@grandmother), notice: '<strong>Grandma information was updated successfully!</strong>'
+    redirect_to profile_path(@grandmother.user), notice: '<strong>Grandma information was updated successfully!</strong>'
   end
 
   def destroy
