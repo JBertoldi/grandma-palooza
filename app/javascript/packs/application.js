@@ -28,8 +28,10 @@ import "bootstrap";
 // Internal imports, e.g:
 import { activateTab, toggleTabs } from '../components/toggle_tabs';
 import { toggleCardDisplay } from '../components/toggle_card';
+import { smoothShow } from '../components/smooth_show';
 
 document.addEventListener('turbolinks:load', () => {
+  smoothShow();
   toggleCardDisplay();
   activateTab();
   toggleTabs();
