@@ -1,6 +1,6 @@
 class Experience < ApplicationRecord
-  belongs_to :user, dependent: :destroy #, required: true
-  belongs_to :grandmother #, required: true
+  belongs_to :user, required: true
+  belongs_to :grandmother, required: true
 
   has_many :bookings, dependent: :destroy
 
