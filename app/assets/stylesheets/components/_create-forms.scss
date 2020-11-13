@@ -1,0 +1,19 @@
+#grandma-background {
+  display: flex;
+  width: 1700px;
+  background-image: url('cool.jpg');
+  background-position-x: 0%;
+  background-position-y: 75%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#experience-background {
+  display: flex;
+  width: 1700px;
+  background-image: url('cooking.jpg');
+  // background-position-x: 100%;
+  background-position-y: 75%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
