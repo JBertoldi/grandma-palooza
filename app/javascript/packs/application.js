@@ -27,8 +27,10 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { activateTab, toggleTabs } from '../components/toggle_tabs';
+import { toggleCardDisplay } from '../components/toggle_card';
 
 document.addEventListener('turbolinks:load', () => {
+  toggleCardDisplay();
   activateTab();
   toggleTabs();
 });

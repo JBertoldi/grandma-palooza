@@ -10,3 +10,20 @@
   margin-bottom: 0px;
   margin-top: 20px;
 }
+
+.booking-form {
+  height: 470px;
+  width: 470px;
+}
+
+.booking-confirmation {
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.booking-confirmation p {
+  font-size: 24px;
+  margin-bottom: 22px;
+}

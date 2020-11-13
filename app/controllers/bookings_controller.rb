@@ -16,7 +16,6 @@ class BookingsController < ApplicationController
     @booking.experience = @experience
 
     @booking.save
-    redirect_to booking_path(@booking), notice: 'Experience booked!'
   end
 
   def destroy
