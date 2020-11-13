@@ -4,3 +4,11 @@
 <% end %>
 
 <%= link_to "edit", edit_grandmother_path(@grandmother) %>
+
+
+
+<% if @grandmother.photo.attached? %>
+  <%= cl_image_tag @grandmother.photo.key %>
+<% else %>
+  <%= cl_image_tag "https://images.unsplash.com/photo-1447005497901-b3e9ee359928?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", :class => "avatar-medium" %>
+<% end %>

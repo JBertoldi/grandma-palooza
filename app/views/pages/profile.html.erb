@@ -8,9 +8,13 @@
 <div class="container-profile">
   <div class="row">
 
-    <div class="col-sm-12 col-md-12 col-lg-3"> 
+    <div class="col-sm-12 col-md-12 col-lg-3">
       <div class="profile-card">
-        <%= image_tag "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", class: "avatar-large" %>
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
+        <% else %>
+          <%= cl_image_tag "https://images.unsplash.com/photo-1447005497901-b3e9ee359928?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", class: "avatar-large" %>
+        <% end %>
         <div class="profile-info">
           <h4><%= @user.name%></h4>
           <small><p><%= @user.nationality %></p></small>
@@ -20,7 +24,7 @@
         <%= link_to 'Log out',  destroy_user_session_path, method: :delete, class: 'btn action-btn' %>
         </div>
       </div>
-    <div class="col-sm-12 col-md-12 col-lg-9"> 
+    <div class="col-sm-12 col-md-12 col-lg-9">
     <div class="dashboard">
       <div id="nav" class="tabs">
           <a href="#manage" class="tab active">Manage Experiences</a>
@@ -43,6 +47,8 @@
                     <% else %>
                       <%= Time.at(experience.duration * 60).utc.strftime("%H:%M") %> hours
                     <% end %>
+                  <small><span class="pl-5">Starts in: </span></small>
+                    <%= distance_of_time_in_words(Time.now, experience.start_time) %>
                   <small><span class="pl-5">Price: €</span></small><%= experience.price %>
                 </p>
                   <%= link_to 'Edit', edit_experience_path(experience.id), class: 'btn action-btn' %>
@@ -70,6 +76,8 @@
                     <% else %>
                       <%= Time.at(booking.experience.duration * 60).utc.strftime("%H:%M") %> hours
                     <% end %>
+                    <small><span class="pl-5">Starts in: </span></small>
+                    <%= distance_of_time_in_words(Time.now, booking.experience.start_time) %>
                   <small><span class="pl-5">Price: €</span></small><%= booking.experience.price %>
                 </p>
                   <%= link_to 'Event page', booking_path(booking.id), class: 'btn action-btn' %>
@@ -104,6 +112,7 @@
             <% end %>
             <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
           <% else %>
+            <h6>Add your granny!</h6>
             <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
           <% end %>
           </div>
