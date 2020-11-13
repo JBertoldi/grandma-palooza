@@ -8,10 +8,13 @@
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="exp-container">
 
-              <div class="exp-card-head">
+              
+               <div class="exp-card-head" style="background-image:url('<%= image_path experience.grandmother.picture %>')  ">
+               
                 <h5><%= link_to experience.title, experience_path(experience) %></h5>
                 <p>With <%= experience.grandmother.name %></p>
-              </div>
+                </div>
+              
 
               <div class="card-footer2">
                 <div class="price-and-book">
