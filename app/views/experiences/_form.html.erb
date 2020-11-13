@@ -2,7 +2,8 @@
 <%= f.input :title %>
 <%= f.input :description %>
 <%= f.input :price %>
-<%= f.input :duration %>
+<%= f.input :start_time %>
+<%= f.input :duration, label: 'Duration: (in min)' %>
 <%= f.association :grandmother, label_method: :name, value_method: :id, include_blank: false, collection: current_user.grandmothers  %>
 <%= f.submit %>
 <% end %>

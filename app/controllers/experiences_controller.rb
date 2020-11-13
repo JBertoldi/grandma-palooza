@@ -3,7 +3,11 @@ class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
   def index
-    @experiences = Experience.all
+    if user_signed_in?
+      @experiences = Experience.where.not(user: current_user)
+    else
+      @experiences = Experience.all
+    end
   end
 
   def show
@@ -43,7 +47,7 @@ class ExperiencesController < ApplicationController
   private
 
   def experience_params
-    params.require(:experience).permit(:title, :description, :price, :duration, :grandmother_id)
+    params.require(:experience).permit(:title, :description, :price,:start_time, :duration, :grandmother_id)
   end
 
   def set_experience

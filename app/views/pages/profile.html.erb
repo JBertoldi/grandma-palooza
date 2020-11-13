@@ -41,7 +41,7 @@
                       <%= distance_of_time_in_words(experience.duration * 60) %>
                     <% else %>
                       <%= Time.at(experience.duration * 60).utc.strftime("%H:%M") %> hours
-  r                  <% end %>
+                    <% end %>
                   <small><span class="pl-5">Price: €</span></small><%= experience.price %>
                 </p>
                   <%= link_to 'Edit', edit_experience_path(experience.id), class: 'btn action-btn' %>
