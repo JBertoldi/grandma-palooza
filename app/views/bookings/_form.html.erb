@@ -1,28 +1,31 @@
 <%= simple_form_for [experience, booking] do |f| %>
-  
-  <div>
-    <h1>Date</h1>
-    <p><%= Time.now.strftime("%B %d, %Y") %></p>
-    <%= f.hidden_field :date, value: Time.now %>
-  </div>
+  <div class="align-items-center">
+    <div>
+      <p>Experience</p>
+      <h3><%= experience.title %></h3>
+      <p><%= f.hidden_field :experience, value: experience.id %></p>
+    </div>
+    
+    <div>
+      <p>Date of the event</p>
+      <h3><%= Time.now.strftime("%B %d, %Y") %></h3>
+      <%= f.hidden_field :date, value: Time.now %>
+    </div>
 
-  <div>
-    <h1>Price</h1>
-    <p><%= experience.price %></p>
-    <%= f.hidden_field :price, value: experience.price %>
-  </div>
+    <div>
+      <p>For the modest amount of</p>
+      <h3><%= experience.price %>€</h3>
+      <%= f.hidden_field :price, value: experience.price %>
+    </div>
 
-  <div>
-    <h1>User</h1>
-    <p><%= current_user.name %></p>
-    <%= f.hidden_field :user, value: current_user.id %>
+    <div>
+      <p>Who will attend</p>
+      <h3><%= current_user.name %></h3>
+      <%= f.hidden_field :user, value: current_user.id %>
+    </div>
   </div>
-
-  <div>
-    <h1>Experience</h1>
-    <p><%= experience.title %></p>
-    <%= f.hidden_field :experience, value: experience.id %>
+  <div class="d-flex justify-content-around">
+    <%= link_to 'Go back', experience_path(@experience), class: 'btn action-btn' %>
+    <%= f.button :submit, 'Yes! I want to go!', class: 'btn sign-btn' %>
   </div>
-
-  <%= f.button :submit, 'Pay' %>
 <% end %>
