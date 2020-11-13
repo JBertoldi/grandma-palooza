@@ -1,10 +1,12 @@
 <%= simple_form_for(experience) do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :price %>
-<%= f.input :start_time %>
-<%= f.input :duration, label: 'Duration: (in min)' %>
-<%= f.association :grandmother, label_method: :name, value_method: :id, include_blank: false, collection: current_user.grandmothers  %>
-<%= f.input :photo, as: :file %>
-<%= f.submit %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :start_time %>
+  <%= f.input :duration, label: 'Duration: (in min)' %>
+  <%= f.association :grandmother, label_method: :name, value_method: :id, include_blank: false, collection: current_user.grandmothers  %>
+  <%= f.input :photo, as: :file %>
+  <div class="btn-container">
+    <%= link_to 'Go back', profile_path(@user), class: 'btn action-btn' %>
+    <%= f.submit class: 'btn sign-btn' %>
 <% end %>

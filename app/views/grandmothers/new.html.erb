@@ -1,11 +1,17 @@
-<h1>Grandmothers new</h1>
+<div id="sign-background">
+  <div class="container-sign">
+    <div class="sign">
+      <h1>Grandmothers new</h1>
 
-<%= simple_form_for @grandmother do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :nationality %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit 'Create grandma!' %>
+        <%= simple_form_for @grandmother do |f| %>
+          <%= f.input :name %>
+          <%= f.input :age %>
+          <%= f.input :nationality %>
+          <%= f.input :description, as: :text %>
+          <%= f.input :photo, as: :file %>
+          <%= f.submit 'Create grandma!' class: 'btn sign-btn' %>
 
-<% end %>
+        <% end %>
+    </div>
+  </div>
+</div>
