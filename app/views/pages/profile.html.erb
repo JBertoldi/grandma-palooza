@@ -7,6 +7,7 @@
 
 <div class="container-profile">
   <div class="row">
+
     <div class="col-sm-12 col-md-12 col-lg-3"> 
       <div class="profile-card">
         <%= image_tag "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", class: "avatar-large" %>
@@ -17,18 +18,18 @@
         </div>
         <%= link_to 'Edit',  edit_user_registration_path, class: 'btn action-btn' %>
         <%= link_to 'Log out',  destroy_user_session_path, method: :delete, class: 'btn action-btn' %>
-      </div>
-    </div>
-    <div class="col-sm-12 col-md-12 col-lg-9"> 
-      <div class="dashboard">
-        <div id="nav" class="tabs">
-            <a href="#manage" class="tab active">Manage Experiences</a>
-            <a href="#booked" class="tab">My Booked Experiences</a>
-            <a href="#grands" class="tab">Grandmothers</a>
         </div>
+      </div>
+    <div class="col-sm-12 col-md-12 col-lg-9"> 
+    <div class="dashboard">
+      <div id="nav" class="tabs">
+          <a href="#manage" class="tab active">Manage Experiences</a>
+          <a href="#booked" class="tab">My Booked Experiences</a>
+          <a href="#grands" class="tab">Grandmothers</a>
+      </div>
 
-        <div class="dashboard-inner">
-          <div id="manage" class="toggle" style="display:show">
+      <div class="dashboard-inner">
+        <div id="manage" class="toggle" style="display:show">
           <% if @user.experiences.present? %>
             <% @user.experiences.each do |experience| %>
               <div class="section-dash">
@@ -73,7 +74,7 @@
                 </p>
                   <%= link_to 'Event page', booking_path(booking.id), class: 'btn action-btn' %>
                   <%= link_to 'Cancel booking', booking_path(booking.id), method: :delete, class: 'btn action-btn' %>
-                </div>
+              </div>
               <% end %>
             <% else %>
               <div class="container-empty section-dash">
@@ -100,6 +101,7 @@
           <% else %>
             <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
           <% end %>
+          </div>
         </div>
       </div>
     </div>
