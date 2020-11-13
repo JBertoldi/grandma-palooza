@@ -72,10 +72,15 @@
                   <%= link_to 'Cancel booking', booking_path(booking.id), method: :delete, class: 'btn action-btn' %>
                 </div>
               <% end %>
+                  <div class="d-flex justify-content-center align-center">
+                  <%= link_to 'Explore all experiences', experiences_path, class: 'btn sign-btn' %>
+                    <div class="searchbar bg-white mt-3">
+                      <input class="search_input bg-white" type="text" name="" placeholder="Search by experiences, country, or type of food..">
+                      <a href="#" class="search_icon text-dark"><i class="fas fa-search"></i></a>
+                    </div>
+                  </div>
             <% else %>
-              <div class="container-empty section-dash">
-                <h6>No bookings.. Yet! </h6>
-              </div>
+                <h6>No bookings.. Yet!</h6>
             <% end %>
         </div>
 
