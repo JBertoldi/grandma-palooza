@@ -1,5 +1,4 @@
 
-
 <div class="exp-page-container">
   <h1>Find an experience near you</h1>
   <div class="row">
@@ -17,8 +16,7 @@
               <div class="card-footer2">
                 <div class="price-and-book">
                   <p><%= experience.price %>€</p>
-                    <a href="url">Book Now</a>
-
+                  <%= link_to 'Book Now', new_experience_booking_path(experience) %>
                 </div>
               </div>
 
