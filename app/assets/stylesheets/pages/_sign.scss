@@ -69,6 +69,7 @@
   min-width: 25%;
   justify-content: space-around;
 }
+
 #sign-background {
   display: flex;
   width: 1700px;
@@ -77,4 +78,12 @@
   background-position-y: 75%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.float-right {
+  float: right;
+}
+
+.align-center {
+  align-items: center;;
 }
