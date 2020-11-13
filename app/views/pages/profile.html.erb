@@ -56,20 +56,23 @@
           <% end %>
         </div>
 
-        <div id="booked" class="toggle" style="display:none">
-          <% if @bookings.present? %>
-            <% @bookings.each do |booking| %>
-              <div class="section-dash">
-                <h6><%= booking.experience.title %></h6>
-                  <p class="ml-2"><%= booking.experience.description %></p>
-                  <p> Duration: 
+          <div id="booked" class="toggle" style="display:none">
+              <% if @bookings.present? %>
+                <% @bookings.each do |booking| %>
+                  <div class="section-dash">
+                    <h6><%= booking.experience.title %></h6>
+                    <p class="ml-2"><%= booking.experience.description %></p>
+                    <p>
+                    <small><span>Host: </span></small><%= booking.experience.grandmother.name %>
+                    <small><span class="pl-5">Duration: </span></small>
                     <% if booking.experience.duration < 60 %>
                       <%= distance_of_time_in_words(booking.experience.duration * 60) %>
                     <% else %>
                       <%= Time.at(booking.experience.duration * 60).utc.strftime("%H:%M") %> hours
                     <% end %>
-                    </p>
-                    <p>Price: <%= booking.experience.price %>€</p>
+                  <small><span class="pl-5">Price: €</span></small><%= booking.experience.price %>
+                </p>
+                  <%= link_to 'Event page', booking_path(booking.id), class: 'btn action-btn' %>
                   <%= link_to 'Cancel booking', booking_path(booking.id), method: :delete, class: 'btn action-btn' %>
               </div>
               <% end %>
