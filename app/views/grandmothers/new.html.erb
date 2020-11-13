@@ -1,7 +1,7 @@
-<div id="sign-background">
+<div id="grandma-background">
   <div class="container-sign">
     <div class="sign">
-      <h1>Grandmothers new</h1>
+      <h2>Add a grandmother</h2>
 
         <%= simple_form_for @grandmother do |f| %>
           <%= f.input :name %>
@@ -9,8 +9,10 @@
           <%= f.input :nationality %>
           <%= f.input :description, as: :text %>
           <%= f.input :photo, as: :file %>
-          <%= f.submit 'Create grandma!' class: 'btn sign-btn' %>
-
+          <div class="btn-container">
+            <%= link_to 'Go back', profile_path(@user), class: 'btn action-btn' %>
+            <%= f.submit 'Create grandma!', class: 'btn sign-btn' %>
+          </div>
         <% end %>
     </div>
   </div>
