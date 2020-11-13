@@ -16,14 +16,11 @@
          <!--  </div> -->
         </div>
       </div>
-<%# 
-      <div class="sign-btn btn-container">
-        <%= link_to experiences_path do %>
-        <%# <p> Book Now!</p>
-        <% end %>
-      <%# </div> %>
-      <%= link_to 'Go back', profile_path, class: 'btn action-btn' %>
-      <%= link_to 'Book Now!', new_experience_booking_path(@experience), class: 'btn sign-btn' %>
+
+      <div class="center-btns">
+        <%= link_to 'Go back', profile_path, class: 'btn action-btn' %>
+        <%= link_to 'Book Now!', new_experience_booking_path(@experience), class: 'btn sign-btn' %>
+      </div>
     </div>
 
     <div class="col-sm-12 col-md-6 col-lg-8">
@@ -32,11 +29,12 @@
           <!-- <div class="text"> -->
             <p><%= @experience.description %></p>
          <!--  </div> -->
-        <p><%= @experience.duration %>min</p>
-        <p><%= @experience.price %>€ </p>
+        <h6>Duration time: <%= @experience.duration %>min</h6>
+        <h6><%= @experience.price %>€ </h6>
       </div>
     </div>
-
+  </div>
+</div>
 
 
 <!--     <%#= link_to 'Edit experience', edit_experience_path(@experience) %> -->
