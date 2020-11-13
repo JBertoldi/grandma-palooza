@@ -1,7 +1,13 @@
 <% if @booking.user == current_user %>
   <h1><%= @booking.experience.title %></h1>
-  <h2><%= @booking.date %> -- <%= @booking.price %></h2>
+  <h2><%= @booking.date.strftime("%B %d, %Y") %></h2>
   <p>For: <%= @booking.user.name %></p>
+  <p><%= @booking.experience.duration %>min -- <%= @booking.price %></p>
+  <%= link_to 'Cancel booking', booking_path(@booking),
+      method: :delete,
+      data: { confirm: 'Are you sure?'} %>
 <% else %>
   <h1>You cannot access this page!</h1>
 <% end %>
+
+<%= link_to 'Profile', profile_path %>
