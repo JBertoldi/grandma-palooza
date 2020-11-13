@@ -1,8 +1,8 @@
-<%# <div class="alert alert-success notice-box" role="alert"> %>
   <% if notice.present? %>
-    <%= notice.html_safe %>
-  <% end %> 
-<%# </div> %>
+    <span class="notice-box mt-4" role="alert">
+      <%= notice.html_safe %>
+    </span>
+  <% end %>
 <h5 class="greeting">Welcome, <%= @user.name.split(" ").first %>!</h5> <%# to clean %>
 
 <div class="container-profile">
