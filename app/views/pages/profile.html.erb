@@ -8,7 +8,7 @@
 <div class="container-profile">
   <div class="row">
 
-    <div class="col-sm-12 col-md-12 col-lg-3"> 
+    <div class="col-sm-12 col-md-12 col-lg-3">
       <div class="profile-card">
         <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, class: "avatar-large" %>
@@ -24,7 +24,7 @@
         <%= link_to 'Log out',  destroy_user_session_path, method: :delete, class: 'btn action-btn' %>
         </div>
       </div>
-    <div class="col-sm-12 col-md-12 col-lg-9"> 
+    <div class="col-sm-12 col-md-12 col-lg-9">
     <div class="dashboard">
       <div id="nav" class="tabs">
           <a href="#manage" class="tab active">Manage Experiences</a>
@@ -108,6 +108,7 @@
             <% end %>
             <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
           <% else %>
+            <h6>Add your granny!</h6>
             <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
           <% end %>
           </div>
