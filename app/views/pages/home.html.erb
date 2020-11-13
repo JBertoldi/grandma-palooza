@@ -2,9 +2,11 @@
   <div class="banner">
   <%= render 'shared/home_navbar' %>
     <div class="banner-text text-white">
-      <h6>Do you ever come home wishing for some comfort food and wise advice?</h6>
-      <p class="mb-0">Grandmothers from around the world welcome you into their homes.</p>
-      <%= link_to 'Join the community!', new_user_registration_path, class: 'btn sign-btn ml-5 mt-0' %>
+      <h6 id="bannerh6" style="display: none;">Do you ever come home wishing for some comfort food and wise advice?</h6>
+      <p class="mb-0" id="bannerp" style="display: none;">Grandmothers from around the world welcome you into their homes.</p>
+      <div id="home-sign" style="display: none;">
+        <%= link_to 'Join the community!', new_user_registration_path, class: 'btn sign-btn ml-5 mt-0' %>
+      </div>
     </div>
   </div>
 </div>
