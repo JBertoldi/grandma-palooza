@@ -1,5 +1,5 @@
 class Grandmother < ApplicationRecord
-  belongs_to :user, required: true, dependent: :destroy
+  belongs_to :user, required: true
 
   has_many :experiences, dependent: :destroy
 
