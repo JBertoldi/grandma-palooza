@@ -1,39 +1,104 @@
-<h2 class="my-name">Welcome, <%= @user.name %>!</h2>
+<%# <div class="alert alert-success notice-box" role="alert"> %>
+  <% if notice.present? %>
+    <%= notice.html_safe %>
+  <% end %> 
+<%# </div> %>
+<h5 class="greeting">Welcome, <%= @user.name.split(" ").first %>!</h5> <%# to clean %>
 
-<div style= "display:flex">
-  <%= link_to 'Create event', new_experience_path, style:"margin: 6px 10px" %>
-  <%= link_to 'Add grandmother', new_grandmother_path, style:"margin: 6px 10px" %>
+<div class="container-profile">
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-3"> 
+      <div class="profile-card">
+        <%= image_tag "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", class: "avatar-large" %>
+        <div class="profile-info">
+          <h4><%= @user.name%></h4>
+          <small><p><%= @user.nationality %></p></small>
+          <small><h5><%= @user.location %></h5></small>
+        </div>
+        <%= link_to 'Edit',  edit_user_registration_path, class: 'btn action-btn' %>
+        <%= link_to 'Log out',  destroy_user_session_path, method: :delete, class: 'btn action-btn' %>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-9"> 
+      <div class="dashboard">
+        <div id="nav" class="tabs">
+            <a href="#manage" class="tab active">Manage Experiences</a>
+            <a href="#booked" class="tab">My Booked Experiences</a>
+            <a href="#grands" class="tab">Grandmothers</a>
+        </div>
+
+        <div class="dashboard-inner">
+          <div id="manage" class="toggle" style="display:show">
+          <% if @user.experiences.present? %>
+            <% @user.experiences.each do |experience| %>
+              <div class="section-dash">
+                <h6><%= experience.title %></h6>
+                <p class="ml-2"><%= experience.description %></p>
+                <p>
+                <small><span>Host: </span></small><%= experience.grandmother.name %>
+                <small><span class="pl-5">Duration: </span></small>
+                    <% if experience.duration < 60 %>
+                      <%= distance_of_time_in_words(experience.duration * 60) %>
+                    <% else %>
+                      <%= Time.at(experience.duration * 60).utc.strftime("%H:%M") %> hours
+                    <% end %>
+                  <small><span class="pl-5">Price: €</span></small><%= experience.price %>
+                </p>
+                  <%= link_to 'Edit', edit_experience_path(experience.id), class: 'btn action-btn' %>
+                  <%= link_to 'Delete', experience_path(experience.id), method: :delete, class: 'btn action-btn' %>
+              </div>
+            <% end %>
+            <%= link_to 'Create experience', new_experience_path, class: 'btn sign-btn' %>
+          <% else %>
+            <h6>No experiences.. Yet! </h6>
+            <%= link_to 'Create experience', new_experience_path, class: 'btn sign-btn' %>
+          <% end %>
+        </div>
+
+          <div id="booked" class="toggle" style="display:none">
+              <% if @bookings.present? %>
+                <% @bookings.each do |booking| %>
+                  <div class="section-dash">
+                    <h6><%= booking.experience.title %></h6>
+                    <p class="ml-2"><%= booking.experience.description %></p>
+                    <p> Duration: 
+                    <% if booking.experience.duration < 60 %>
+                      <%= distance_of_time_in_words(booking.experience.duration * 60) %>
+                    <% else %>
+                      <%= Time.at(booking.experience.duration * 60).utc.strftime("%H:%M") %> hours
+                    <% end %>
+                    </p>
+                    <p>Price: <%= booking.experience.price %>€</p>
+                  <%= link_to 'Cancel booking', booking_path(booking.id), method: :delete, class: 'btn action-btn' %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="container-empty section-dash">
+                <h6>No bookings.. Yet! </h6>
+              </div>
+            <% end %>
+        </div>
+
+        <div id="grands" class="toggle" style="display:none">
+          <% if @grandmothers.present? %>
+            <% @grandmothers.each do |grandmother| %>
+                  <div class="section-dash">
+                    <h6><%= grandmother.name %></h6>
+                    <p><small>
+                      <%= grandmother.nationality %>,
+                      <%= grandmother.age %> years young
+                    </small></p>
+                    <p class="ml-2"><%= grandmother.description %></p>
+                    <%= link_to 'Edit', edit_grandmother_path(grandmother.id), class: 'btn action-btn' %>
+                    <%= link_to 'Delete', grandmother_destroy_path(grandmother), method: :delete, class: 'btn action-btn' %>
+                  </div>
+            <% end %>
+            <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
+          <% else %>
+            <%= link_to 'Add grandmother', new_grandmother_path, class: 'btn sign-btn' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div class="row">
-<div class="alert alert-success" role="alert">
-  You have logged in successfully
- <% if notice.present? %>
-  <%= notice.html_safe %>
-<% end %>
-</div>
-</div>
-
-<div class="profile-card">
-  <%= image_tag "https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80", :class => "avatar-large" %>
-
-  <h4 class="profile-name-margin"><%= @user.name%></h4>
-
-  <p>Nationality: <%= @user.nationality %></p>
-  <p>Location: <%= @user.location %></p>
-
-  <p><%= @user.email %></p>
-
-</div>
-
-
-
-
-<!-- need to work on the destroy grandmother method, check the pages_controller -->
-<ul>
-  <% @grandmothers.each do |grandmother| %>
-    <li>
-      <%= link_to 'Delete', grandmother_destroy_path(grandmother), method: :delete %>
-    </li>
-  <% end %>
-</ul>

@@ -1,0 +1,55 @@
+.dashboard {
+  width: 90%;
+  height: max-content;
+  margin: 0 auto;
+  padding: 20px;
+  padding-left: 36px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px rgba(150,150,150,0.5);
+  margin-bottom: 30px;
+}
+
+.dashboard-inner {
+  height: max-content;
+}
+
+.section-dash {
+  height: max-content;
+  border-bottom: 1px solid #6e6d6d;
+  padding: 16px;
+}
+
+.container-empty {
+  min-width: 90%;
+  min-height: fit-content;
+}
+
+.tabs {
+  display: flex;
+  position: relative;
+}
+
+.tab {
+  color: #949494;
+  padding: 8px 0;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: lighter;
+  transition: color 2s ease-in 2s;
+}
+
+.tab:hover {
+  color:  #555555;
+  transition: color 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.active {
+  color: #555555;
+  border-bottom: 3px solid #2c2c2c;
+  font-weight: normal;
+  transition: color 2s ease-in 2s;
+
+}
