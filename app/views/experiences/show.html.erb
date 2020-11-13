@@ -5,7 +5,11 @@
       <div class="grandma-details">
        <!--  <div> -->
 <!--         <div class="grandma-dt"> -->
-          <%= image_tag "https://images.unsplash.com/photo-1447005497901-b3e9ee359928?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", :class => "avatar-medium" %>
+        <% if @experience.grandmother.photo.attached? %>
+          <%= cl_image_tag @experience.photo.key, :class => "avatar-medium" %>
+        <% else %>
+          <%= cl_image_tag "https://images.unsplash.com/photo-1447005497901-b3e9ee359928?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80", :class => "avatar-medium" %>
+        <% end %>
           <br>
           <p>Assigned granny</p>
           <h4><%= @experience.grandmother.name %></h4>

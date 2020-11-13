@@ -8,10 +8,14 @@
           <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="exp-container">
 
-              <div class="exp-card-head">
-                <h5><%= link_to experience.title, experience_path(experience) %></h5>
-                <p>With <%= experience.grandmother.name %></p>
-              </div>
+              <% if experience.photo.attached? %>
+                <div class="exp-card-head" style='background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1) ), url(<%= cl_image_path experience.photo.key %>)'>
+              <% else %>
+                <div class="exp-card-head" style='background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1) ), url("https://images.unsplash.com/photo-1575467678930-c7acd65d6470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80")'>
+              <% end %>
+                  <h5><%= link_to experience.title, experience_path(experience) %></h5>
+                  <p>With <%= experience.grandmother.name %></p>
+                </div>
 
               <div class="card-footer2">
                 <div class="price-and-book">
